@@ -823,9 +823,9 @@ document.querySelectorAll('.cases .thumb[data-yt]').forEach(function(a){a.addEve
     });
   });
 
-  // 히어로를 지나면 헤더 등장 (레퍼런스 navigation.js 동일 로직)
+  // 도입 두 화면(.hero-bg)을 지나면 헤더 등장 (월급반 랜딩과 동일)
   (function () {
-    var header = document.querySelector(".nav"), hero = document.querySelector(".hero");
+    var header = document.querySelector(".nav"), hero = document.querySelector(".hero-bg");
     if (!header || !hero) return;
     var offset = function () { return (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0) + 4; };
     var sync = function () { var v = hero.getBoundingClientRect().bottom <= offset(); header.classList.toggle("is-visible", v); header.inert = !v; };
