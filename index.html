@@ -503,12 +503,8 @@
   .preview:hover .lock{transform:translateY(-3px);box-shadow:inset 0 1px 0 #fff,0 26px 50px -18px rgba(11,29,54,.45)}
   .preview:hover .lock svg{animation:g-wiggle .6s ease-in-out}
   /* 커리큘럼 원형: 등장 시 호(弧) 드로잉 + 노드 팝, 범례 ↔ 노드 연동 하이라이트 */
-  /* 조용한 등장: 호는 서서히 나타나고, 중앙 원과 노드는 아주 살짝 커지며 페이드 인 (튕김·링 펄스 없음) */
-  .motion .wheel svg path{opacity:0;transition:opacity 1.2s ease .2s}
-  .motion .wheel.in svg path{opacity:1}
-  .motion .wheel .node,.motion .wheel .core{opacity:0;scale:.96;transition:opacity .9s ease,scale .9s ease}
-  .motion .wheel.in .node,.motion .wheel.in .core{opacity:1;scale:1}
-  .motion .wheel.in .core{transition-delay:.1s}.motion .wheel.in .n1{transition-delay:.3s}.motion .wheel.in .n2{transition-delay:.45s}.motion .wheel.in .n3{transition-delay:.6s}
+  /* 원형 다이어그램은 개별 요소 애니메이션 없이 전체가 한 번에 조용히 페이드 인 (.rv 공통 등장만 사용) */
+  .motion .wheel.rv{translate:0 0;transition:opacity 1.1s ease}
   .wheel .node{transition:box-shadow .3s,border-color .3s}
   .wheel .node.hi,.wheel .node:hover{box-shadow:0 16px 36px -16px rgba(11,29,54,.35),0 0 0 6px rgba(255,255,255,.7),0 0 0 12px rgba(28,105,212,.18)}
   .legend>div{padding:10px 14px;margin:-10px -14px;border-radius:14px;transition:background .25s}
@@ -545,7 +541,8 @@
   .hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(560px circle at var(--mx,50%) var(--my,40%),rgba(255,255,255,.11),transparent 60%)}
   .hero.spot::after{opacity:1}
   .hero .quote .w{display:inline-block;white-space:pre}
-  .hero .gold .w{background:var(--g-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .gold .w{background:var(--g-gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .14em;margin:0 -.14em}
+  .hero .gold,.born-sec .gold{padding:0 .1em;margin:0 -.1em}
   .motion .hero .idea>p{animation:none}
   .motion .hero .quote .w{opacity:0;translate:0 .55em;filter:blur(8px);animation:g-word .95s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--base,0s) + var(--i,0)*55ms)}
   .motion .hero .quote:nth-of-type(1) .w{--base:.35s}
